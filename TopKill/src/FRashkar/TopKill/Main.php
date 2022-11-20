@@ -40,7 +40,6 @@ class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
-    private $plugin;
 
     public function onEnable() : void {
 
