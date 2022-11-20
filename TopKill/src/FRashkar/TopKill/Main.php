@@ -44,7 +44,8 @@ class Main extends PluginBase implements Listener {
     public $death;
     private $plugin;
 
-    public function onEnable() {
+    public function onEnable()
+    {
         
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
@@ -115,7 +116,8 @@ class Main extends PluginBase implements Listener {
 
     }
 
-    public function onDisable() {
+    public function onDisable()
+    {
         $this->kill->save();
         $this->death->save();
     }
