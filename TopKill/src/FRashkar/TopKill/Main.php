@@ -26,6 +26,10 @@ use slapper\events\SlapperCreationEvent;
 use slapper\events\SlapperDeletionEvent;
 
 class Main extends PluginBase implements Listener {
+    
+    public $kill;
+    public $death;
+    private $plugin;
 
     public function onEnable() : void {
 
@@ -33,9 +37,7 @@ class Main extends PluginBase implements Listener {
         $this->kill = new Config($this->getDataFolder(). "kill.yml", Config::YAML);
         $this->death = new Config($this->getDataFolder(). "death.yml", Config::YAML);
         $this->getServer()->getPluginManager()->registerEvents(new PlayerDeath($this), $this)
-
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getServer()->getCommandMap()->register("topkill", new TopKillCommand($this));
         $this->getLogger()->info("Top Kill Actived!");
         $this->saveDefaultConfig();
 
