@@ -12,6 +12,9 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 
 use pocketmine\entity\Entity;
+use pocketmine\entity\EntitySizeInfo;
+use pocketmine\entity\EntityDataHelper;
+use pocketmine\entity\EntityFactory;
 
 use pocketmine\nbt\tag\StringTag;
 
@@ -20,7 +23,15 @@ use pocketmine\utils\TextFormat;
 
 use pocketmine\player\Player;
 
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDeathEvent;
+
 use pocketmine\event\Listener;
+
+use pocketmine\event\player\PlayerDataSaveEvent;
+use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\player\PlayerEvent;
 
 use slapper\events\SlapperCreationEvent;
 use slapper\events\SlapperDeletionEvent;
