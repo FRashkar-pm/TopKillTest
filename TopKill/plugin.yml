@@ -1,0 +1,11 @@
+name: TopKill
+version: 0.0.1
+api: 4.0.0
+main: FRashkar\TopKill\Main
+author: FRashkar
+
+commands:
+ topkill:
+  description: Create top kill
+  default: op
+  permission: topkill.command
