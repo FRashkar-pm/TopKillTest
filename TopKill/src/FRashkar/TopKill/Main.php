@@ -36,7 +36,7 @@ class Main extends PluginBase implements Listener {
         @mkdir($this->getDataFolder());
         $this->kill = new Config($this->getDataFolder(). "kill.yml", Config::YAML);
         $this->death = new Config($this->getDataFolder(). "death.yml", Config::YAML);
-        $this->getServer()->getPluginManager()->registerEvents(new PlayerDeath($this), $this)
+        $this->getServer()->getPluginManager()->registerEvents(new PlayerDeath($this), $this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("Top Kill Actived!");
         $this->saveDefaultConfig();
