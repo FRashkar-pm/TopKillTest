@@ -18,7 +18,7 @@ use pocketmine\entity\EntityFactory;
 
 use pocketmine\nbt\tag\StringTag;
 
-use pocketimne\utils\Config;
+use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 
 use pocketmine\player\Player;
