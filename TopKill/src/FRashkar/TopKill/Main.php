@@ -101,13 +101,13 @@ class Main extends PluginBase implements Listener {
             $top++;
         }
 
-        foreach($this->getServer()->getLevels() as $level) {
+        foreach($this->getServer()->WorldManager->getWorlds() as $level) {
             foreach($level->getEntities() as $entity) {
                 if($entity->namedtag->hasTag("topkill", StringTag::class)) {
                     if($entity->namedtag->getString("topmoney") == "topmoney") {
                         $entity->setNameTag($text);
-                        $entity->getDataPropertyManager()->setFloat(Entity::DATA_BOUNDING_BOX_HEIGHT, 3);
-                        $entity->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, 0.0);
+                        $entity->getDataPropertyManager()->setFloat(Entity::BOUNDING_BOX_HEIGHT, 3);
+                        $entity->getDataPropertyManager()->setFloat(Entity::SCALE, 0.0);
                     }
                 }
             }
