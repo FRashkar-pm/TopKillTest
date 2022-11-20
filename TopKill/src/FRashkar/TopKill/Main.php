@@ -33,6 +33,9 @@ use pocketmine\event\player\PlayerDataSaveEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerEvent;
 
+use pocketmine\world\World;
+use pocketmine\world\WorldManager;
+
 use slapper\events\SlapperCreationEvent;
 use slapper\events\SlapperDeletionEvent;
 
@@ -106,8 +109,8 @@ class Main extends PluginBase implements Listener {
                 if($entity->namedtag->hasTag("topkill", StringTag::class)) {
                     if($entity->namedtag->getString("topmoney") == "topmoney") {
                         $entity->setNameTag($text);
-                        $entity->getDataPropertyManager()->setFloat(Entity::BOUNDING_BOX_HEIGHT, 3);
-                        $entity->getDataPropertyManager()->setFloat(Entity::SCALE, 0.0);
+                        $entity->getDataPropertyManager()->setFloat(Entity::DATA_BOUNDING_BOX_HEIGHT, 3);
+                        $entity->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, 0.0);
                     }
                 }
             }
