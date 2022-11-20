@@ -71,7 +71,7 @@ class Main extends PluginBase implements Listener {
     public function updateTopKill() {
         $config = $this->plugin->kill;
 
-        arsort(array &$array $config);
+        arsort(array $config);
 
         $config = $config->getAll();
 
