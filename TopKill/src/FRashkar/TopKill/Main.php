@@ -36,12 +36,17 @@ use pocketmine\event\player\PlayerEvent;
 use slapper\events\SlapperCreationEvent;
 use slapper\events\SlapperDeletionEvent;
 
+use FRashkar\Events\PlayerDeath;
+
 class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
+    private $plugin;
 
-    public function onEnable() : void {
+    public function onEnable() {
+        
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
         @mkdir($this->getDataFolder());
         $this->kill = new Config($this->getDataFolder(). "kill.yml", Config::YAML);
@@ -110,7 +115,7 @@ class Main extends PluginBase implements Listener {
 
     }
 
-    public function onDisable() : void {
+    public function onDisable() {
         $this->kill->save();
         $this->death->save();
     }
