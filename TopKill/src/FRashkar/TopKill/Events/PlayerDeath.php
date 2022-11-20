@@ -4,6 +4,16 @@ namespace FRashkar\TopKill\Events;
 
 use pocketmine\event\Listener;
 
+use pocketmine\player\Player;
+
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDeathEvent;
+
+use pocketmine\event\player\PlayerDataSaveEvent;
+use pocketmine\event\player\PlayerDeathEvent;
+use pocketmine\event\player\PlayerEvent;
+
 use FRashkar\TopKill\Main;
 
 class PlayerDeath implements Listener {
