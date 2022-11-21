@@ -45,7 +45,6 @@ class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
-    private WorldManager $WorldManager;
 
     public function onEnable() : void {
         
