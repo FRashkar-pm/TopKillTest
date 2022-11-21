@@ -10,6 +10,7 @@ use pocketmine\plugin\PluginManager;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\PluginCommand;
 
 use pocketmine\entity\Entity;
 use pocketmine\entity\EntitySizeInfo;
@@ -45,6 +46,7 @@ class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
+    private $plugin;
 
     public function onEnable() : void {
         
