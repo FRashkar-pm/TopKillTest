@@ -8,4 +8,3 @@ commands:
  topkill:
   description: Create top kill
   default: op
-  permission: topkill.command
