@@ -39,16 +39,17 @@ use pocketmine\world\WorldManager;
 use slapper\events\SlapperCreationEvent;
 use slapper\events\SlapperDeletionEvent;
 
-use FRashkar\Events\PlayerDeath;
+use FRashkar\TopKill\Events\PlayerDeath;
 
 class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
-    private $plugin;
+    private WorldManager $WorldManager;
 
     public function onEnable() : void {
         
+        $this->getServer()->getPluginManager()->getPlugin("Slapper");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
         @mkdir($this->getDataFolder());
