@@ -68,7 +68,7 @@ class Main extends PluginBase implements Listener {
                     $y = $sender->getFloorY();
                     $z = $sender->getFloorZ();
                     $text = $texts;
-                    $subtitle = $texts;
+                    $subtitle = $subtitles;
                     $sender->getWorld()->addParticle(new FloatingTextParticle(new Vector3($x, $y, $z), $text, $subtitle));
 
                 } else {
@@ -94,7 +94,7 @@ class Main extends PluginBase implements Listener {
         $texts = "Top Kill";
 
         foreach($config as $name => $value) {
-            $subtitle = "\n" . $top . " - " . $name . " - " . $value;
+            $subtitles = "\n" . $top . " - " . $name . " - " . $value;
             $top++;
         }
 
