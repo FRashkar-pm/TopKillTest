@@ -37,6 +37,8 @@ use pocketmine\event\player\PlayerEvent;
 use pocketmine\world\World;
 use pocketmine\world\WorldManager;
 use pocketmine\world\particle\FloatingTextParticle;
+
+use pocketmine\math\Vector3;
     
 use FRashkar\TopKill\Events\PlayerDeath;
 
