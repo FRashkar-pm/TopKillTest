@@ -36,10 +36,8 @@ use pocketmine\event\player\PlayerEvent;
 
 use pocketmine\world\World;
 use pocketmine\world\WorldManager;
-
-use slapper\events\SlapperCreationEvent;
-use slapper\events\SlapperDeletionEvent;
-
+use pocketmine\world\particle\FloatingTextParticle;
+    
 use FRashkar\TopKill\Events\PlayerDeath;
 
 class Main extends PluginBase implements Listener {
@@ -66,6 +64,12 @@ class Main extends PluginBase implements Listener {
         switch($cmd->getName()) {
             case "topkill":
                 if($sender instanceof Player) {
+                    $x = $sender->getFloorX();
+                    $y = $sender->getFloorY();
+                    $z = $sender->getFloorZ();
+                    $text = $texts;
+                    $subtitle = $texts;
+                    $sender->getWorld()->addParticle(new FloatingTextParticle(new Vector3($x, $y, $z), $text, $subtitle));
 
                 } else {
                     $this->updateTopKill();
@@ -74,18 +78,6 @@ class Main extends PluginBase implements Listener {
 
         }
         return true;
-    }
-
-    public function onSlapperCreate(SlapperCreationEvent $event) {
-
-        $entity = $event->getEntity();
-        
-        $name = $entity->getNameTag();
-
-        if($name == "topkill") {
-            $entity->namedtag->setString("topkill", "topkill");
-            $this->updateTopKill();
-        }
     }
 
     public function updateTopKill() {
@@ -99,23 +91,11 @@ class Main extends PluginBase implements Listener {
 
         $top = 1;
 
-        $text = "Top Kill";
+        $texts = "Top Kill";
 
         foreach($config as $name => $value) {
-            $text .= "\n" . $top . " - " . $name . " - " . $value;
+            $subtitle = "\n" . $top . " - " . $name . " - " . $value;
             $top++;
-        }
-
-        foreach($this->getServer()->WorldManager->getWorlds() as $level) {
-            foreach($level->getEntities() as $entity) {
-                if($entity->namedtag->hasTag("topkill", StringTag::class)) {
-                    if($entity->namedtag->getString("topmoney") == "topmoney") {
-                        $entity->setNameTag($text);
-                        $entity->getDataPropertyManager()->setFloat(Entity::DATA_BOUNDING_BOX_HEIGHT, 3);
-                        $entity->getDataPropertyManager()->setFloat(Entity::DATA_SCALE, 0.0);
-                    }
-                }
-            }
         }
 
     }
