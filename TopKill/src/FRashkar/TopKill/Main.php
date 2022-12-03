@@ -46,6 +46,7 @@ class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
+    private static $instance;
 
     public function onEnable() : void {
 
@@ -53,6 +54,7 @@ class Main extends PluginBase implements Listener {
         $this->kill = new Config($this->getDataFolder(). "kill.yml", Config::YAML);
         $this->death = new Config($this->getDataFolder(). "death.yml", Config::YAML);
         $this->getServer()->getPluginManager()->registerEvents(new PlayerDeath($this), $this);
+        $this->getServer()->getCommandMap()->register("topkills", new TopKill($this));
         $this->getLogger()->info("Top Kill Actived!");
         $this->saveDefaultConfig();
 
@@ -80,5 +82,8 @@ class Main extends PluginBase implements Listener {
     public function onDisable() : void {
         $this->kill->save();
         $this->death->save();
+    }
+    public static function getInstance(){
+        return self::$instance;
     }
 }
