@@ -46,12 +46,8 @@ class Main extends PluginBase implements Listener {
     
     public $kill;
     public $death;
-    private $plugin;
 
     public function onEnable() : void {
-        
-        $this->getServer()->getPluginManager()->getPlugin("Slapper");
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
         @mkdir($this->getDataFolder());
         $this->kill = new Config($this->getDataFolder(). "kill.yml", Config::YAML);
@@ -81,27 +77,6 @@ class Main extends PluginBase implements Listener {
         }
         return true;
     }
-
-    public function updateTopKill() {
-        $config = $this->plugin->kill;
-
-        arsort($config);
-
-        $config = $config->getAll();
-
-        $config = array_slice($config, 0, 9);
-
-        $top = 1;
-
-        $texts = "Top Kill";
-
-        foreach($config as $name => $value) {
-            $subtitles = "\n" . $top . " - " . $name . " - " . $value;
-            $top++;
-        }
-
-    }
-
     public function onDisable() : void {
         $this->kill->save();
         $this->death->save();
